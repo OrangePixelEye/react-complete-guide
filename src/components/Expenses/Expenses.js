@@ -5,19 +5,6 @@ import ExpenseItem from "./ExpenseItem";
 import './Expenses.css';
 
 function Expenses(props) {
-    let elements = [];
-
-    // for each expens
-    props.expenses.forEach(e => {
-        if (e.date)
-            elements.push(
-                <ExpenseItem
-                    title={e.title}
-                    amount={e.amount}
-                    date={e.date}
-                />
-            )
-    });
 
     const [year, setYear] = useState('2020');
     const selectHandler = (enteredData) => {
@@ -31,7 +18,18 @@ function Expenses(props) {
             <Card className="expenses">
                 {/* pega o dado selecionado e colocar em um state */}
                 <ExpensesFilter selected={year} onSelectOption={selectHandler} />
-                {elements}
+                {props.items.map((item) => {
+                    return (
+                    
+                    <ExpenseItem 
+                        // key helps to identify each element
+                        key={item.id}
+                        title={item.title}
+                        amount={item.amount}
+                        date={item.date}
+                    />)
+                })
+                }
             </Card>
         </div>
     );
