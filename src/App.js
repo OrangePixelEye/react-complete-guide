@@ -18,7 +18,7 @@ const DUMMY_EXPENSES = [
   {
     id: 'e3',
     title: 'not so cool toilet paper',
-    amount: 94.12,
+    amount: 194.12,
     date: new Date(2020, 1, 2)
   },
   {

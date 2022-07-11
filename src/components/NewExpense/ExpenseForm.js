@@ -24,7 +24,7 @@ function ExpenseForm(props) {
     };
 
     const amountChangeHandler = event => {
-        setAmount(event.target.value)
+        setAmount(parseFloat(event.target.value))
         // value is always a string
         // setUserInput((prevState) => {
         //     return {...prevState, amount: event.target.value}
@@ -43,7 +43,7 @@ function ExpenseForm(props) {
         const expenseData = {
             title: enteredTitle,
             date: new Date(enteredDate),
-            amount: enteredAmount
+            amount: +enteredAmount
         }
         props.onSaveExpenseData(expenseData);
         // clear the inputs
